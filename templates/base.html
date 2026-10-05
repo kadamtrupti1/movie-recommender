@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}ReelPick{% endblock %} · ReelPick</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+<nav>
+  <a class="logo" href="{{ url_for('index') }}">ReelPick</a>
+  <form action="{{ url_for('movies') }}"><input name="q" placeholder="Search movies"><button class="btn">Search</button></form>
+  <a href="{{ url_for('movies') }}">Browse</a>
+  {% if current_user %}
+    <a href="{{ url_for('watchlist') }}">Watchlist</a>
+    <span class="muted">Hi, {{ current_user.username }}</span>
+    <a href="{{ url_for('logout') }}">Log out</a>
+  {% else %}
+    <a href="{{ url_for('login') }}">Log in</a>
+    <a class="btn" href="{{ url_for('register') }}">Sign up</a>
+  {% endif %}
+</nav>
+<main>
+  {% for m in get_flashed_messages() %}<div class="flash">{{ m }}</div>{% endfor %}
+  {% block content %}{% endblock %}
+</main>
+<footer>ReelPick · Movie Recommendation Website · Flask + SQLAlchemy</footer>
+</body>
+</html>

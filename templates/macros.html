@@ -1,0 +1,19 @@
+{% macro poster(m) %}
+{% if m.poster_url and 'placehold.co' not in m.poster_url %}
+<img src="{{ m.poster_url }}" alt="{{ m.title }}" loading="lazy">
+{% else %}
+<div class="poster g-{{ m.genre_list[0]|lower }}" data-i="{{ m.title[0] }}">
+  <span class="pg">{{ m.genre_list[:2]|join(' / ') }}</span>
+  <b>{{ m.title }}</b>
+  <span class="py">{{ m.year }}</span>
+</div>
+{% endif %}
+{% endmacro %}
+{% macro card(m) %}
+<a class="card" href="{{ url_for('detail', movie_id=m.id) }}">
+  {{ poster(m) }}
+  <span class="badge">★ {{ m.rating }}</span>
+  <div class="info"><h3>{{ m.title }}</h3><p class="muted">{{ m.year }} · {{ m.genre_list[0] }}</p></div>
+</a>
+{% endmacro %}
+{% macro row(items) %}<div class="grid">{% for m in items %}{{ card(m) }}{% endfor %}</div>{% endmacro %}

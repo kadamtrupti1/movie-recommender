@@ -1,0 +1,59 @@
+:root{--bg:#181223;--card:#241b35;--line:#3a2d52;--text:#f1e9dc;--muted:#a79bbd;--accent:#f5a524}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+nav{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;padding:.8rem 5%;background:#181223ee;position:sticky;top:0;z-index:9;border-bottom:1px solid var(--line)}
+.logo{font-family:Georgia,serif;font-weight:700;font-size:1.5rem;color:var(--accent);margin-right:auto}
+nav form{display:flex;gap:.4rem}
+input,select{padding:.55rem .8rem;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+.btn{display:inline-block;padding:.55rem 1rem;border-radius:8px;border:0;background:var(--accent);color:#1b1200;font-weight:600;cursor:pointer;font:inherit;font-weight:600}
+main{padding:1.5rem 5%;min-height:80vh}
+h2{margin:2rem 0 1rem;font-family:Georgia,serif}
+.muted{color:var(--muted)}
+.flash{background:var(--card);border-left:4px solid var(--accent);padding:.7rem 1rem;margin-bottom:1rem;border-radius:6px}
+.hero{padding:3rem 2rem;border-radius:14px;background:linear-gradient(120deg,#3b2457,#181223);border:1px solid var(--line)}
+.hero h1{font-family:Georgia,serif;font-size:clamp(1.8rem,5vw,3rem);margin-bottom:.6rem}
+.hero p{max-width:60ch;margin-bottom:1.2rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem}
+.card{background:var(--card);border-radius:10px;overflow:hidden;border:1px solid var(--line);transition:transform .15s}
+.card:hover{transform:translateY(-4px)}
+.card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
+.info{padding:.6rem}.info h3{font-size:.95rem}
+.chip{display:inline-block;margin:0 .4rem .4rem 0;padding:.25rem .8rem;border:1px solid var(--line);border-radius:99px;background:var(--card)}
+.chip:hover{border-color:var(--accent)}
+.filters{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem}
+.detail{display:grid;grid-template-columns:260px 1fr;gap:2rem}
+.detail img{width:100%;border-radius:12px}
+.detail p{margin:.8rem 0}
+.stars .star{font-size:1.8rem;color:#4a3d63;cursor:pointer}
+.stars .star.on{color:var(--accent)}
+.auth{max-width:380px;margin:3rem auto;display:flex;flex-direction:column;gap:.8rem}
+footer{text-align:center;padding:1.5rem;color:var(--muted);border-top:1px solid var(--line)}
+@media(max-width:700px){.detail{grid-template-columns:1fr}.detail img{max-width:240px}}
+
+/* ---- generated posters (no images needed) ---- */
+.card{position:relative}
+.poster{position:relative;overflow:hidden;aspect-ratio:2/3;display:flex;flex-direction:column;justify-content:flex-end;gap:.3rem;padding:1rem;border-radius:inherit;background:linear-gradient(160deg,#6d28d9,#1e1b4b)}
+.poster::before{content:attr(data-i);position:absolute;top:-1.2rem;right:-.4rem;font:700 9rem/1 Georgia,serif;opacity:.16}
+.poster b{position:relative;font:700 1.3rem/1.15 Georgia,serif;text-shadow:0 2px 8px #0008}
+.poster .pg{position:relative;font-size:.75rem;opacity:.85}
+.poster .py{position:relative;font-size:.8rem;opacity:.7}
+.detail .poster{border-radius:12px;max-width:260px}
+.badge{position:absolute;top:.6rem;left:.6rem;background:#181223cc;color:var(--accent);padding:.15rem .55rem;border-radius:99px;font-size:.8rem;font-weight:600}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 28px #0007;border-color:var(--accent)}
+.g-action{background:linear-gradient(160deg,#dc2626,#450a0a)}
+.g-sci-fi{background:linear-gradient(160deg,#0891b2,#172554)}
+.g-drama{background:linear-gradient(160deg,#9333ea,#2e1065)}
+.g-comedy{background:linear-gradient(160deg,#f59e0b,#9a3412)}
+.g-animation{background:linear-gradient(160deg,#ec4899,#7e22ce)}
+.g-romance{background:linear-gradient(160deg,#f43f5e,#881337)}
+.g-horror{background:linear-gradient(160deg,#4b5563,#000)}
+.g-thriller{background:linear-gradient(160deg,#334155,#020617)}
+.g-crime{background:linear-gradient(160deg,#b45309,#1c1917)}
+.g-fantasy{background:linear-gradient(160deg,#10b981,#4c1d95)}
+.g-adventure{background:linear-gradient(160deg,#16a34a,#134e4a)}
+.g-music{background:linear-gradient(160deg,#6366f1,#be185d)}
+.g-sports{background:linear-gradient(160deg,#65a30d,#14532d)}
+.g-history{background:linear-gradient(160deg,#a16207,#451a03)}
+.hero{padding:4rem 2.5rem;background:radial-gradient(circle at 85% 20%,#f5a52444,transparent 45%),linear-gradient(120deg,#3b2457,#181223)}
+.hero h1{font-size:clamp(2rem,6vw,3.6rem)}

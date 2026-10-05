@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% from 'macros.html' import row %}
+{% block title %}Browse{% endblock %}
+{% block content %}
+<h2>Browse movies</h2>
+<form class="filters" method="get">
+  <input name="q" value="{{ q }}" placeholder="Title">
+  <select name="genre"><option value="">All genres</option>
+    {% for g in genres %}<option {{ 'selected' if g == genre }}>{{ g }}</option>{% endfor %}</select>
+  <input name="year" type="number" value="{{ year }}" placeholder="Year from">
+  <input name="min_rating" type="number" step="0.1" max="10" value="{{ min_rating }}" placeholder="Min rating">
+  <select name="sort">
+    {% for k, v in [('popular','Most popular'),('rating','Highest rated'),('year','Newest'),('title','A-Z')] %}
+    <option value="{{ k }}" {{ 'selected' if sort == k }}>{{ v }}</option>{% endfor %}</select>
+  <button class="btn">Apply</button>
+</form>
+<p class="muted">{{ movies|length }} movies found</p>
+{% if movies %}{{ row(movies) }}{% else %}<p>No movies match. Try removing a filter.</p>{% endif %}
+{% endblock %}

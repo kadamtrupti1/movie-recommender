@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% from 'macros.html' import row %}
+{% block title %}Watchlist{% endblock %}
+{% block content %}
+<h2>My watchlist</h2>
+{% if movies %}{{ row(movies) }}{% else %}<p>Nothing saved yet. <a href="{{ url_for('movies') }}">Browse movies</a> and add some.</p>{% endif %}
+{% endblock %}

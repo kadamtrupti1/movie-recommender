@@ -1,0 +1,20 @@
+{% extends 'base.html' %}{% from 'macros.html' import row %}
+{% block content %}
+{% if hero %}
+<section class="hero">
+  <h1>Tonight's pick: {{ hero.title }}</h1>
+  <p>{{ hero.description }}</p>
+  <a class="btn" href="{{ url_for('detail', movie_id=hero.id) }}">View details</a>
+</section>
+{% endif %}
+
+{% if current_user %}
+<h2>Recommended for you</h2>
+{% if recs %}{{ row(recs) }}{% else %}<p class="muted">Rate a few movies 4 or 5 stars and your picks will appear here.</p>{% endif %}
+{% endif %}
+
+<h2>Trending now</h2>{{ row(trending) }}
+<h2>Top rated</h2>{{ row(top) }}
+<h2>Browse by genre</h2>
+<p>{% for g in genres %}<a class="chip" href="{{ url_for('movies', genre=g) }}">{{ g }}</a>{% endfor %}</p>
+{% endblock %}
